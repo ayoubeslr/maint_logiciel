@@ -23,43 +23,47 @@ class TaskList:
         command_rest = command_line.split(" ", 1)
         command = command_rest[0]
 
-        condition = {
-            "show" : self.show(),
-        }
+        print('command_rest', command_rest)
 
-        print("command",command)
+        # condition = {
+        #     "show" : self.show(),
+        #     "add" : self.add(command)
+        # }
 
-        for key, val in condition.items():
-            print("val",val,  command)
-            if key == command:
-                val
+        # print("command",command)
+
+        # for key, val in condition.items():
+        #     print("val",val,  command)
+        #     if key == command:
+        #         val
            
-        print('aaa', condition[command])
-        # if command == "show":
-        #     self.show()
-        # elif command == "add":
-        #     self.add(command_rest[1])
-        # elif command == "check":
-        #     self.check(command_rest[1])
-        # elif command == "uncheck":
-        #     self.uncheck(command_rest[1])
-        # elif command == "help":
-        #     self.help()
-        # else:
-        #     self.error(command)
+        # print('aaa', condition[command])
+        if command == "show":
+            self.show()
+        elif command == "add":
+            self.add(command_rest[1])
+        elif command == "check":
+            self.check(command_rest[1])
+        elif command == "uncheck":
+            self.uncheck(command_rest[1])
+        elif command == "help":
+            self.help()
+        else:
+            self.error(command)
 
     def show(self) -> None:
-        print('NISSSSSSSSSSSSSSS')
         for project, tasks in self.tasks.items():
-            print(project)
+            print("project", project)
             self.console.print(project)
             for task in tasks:
                 self.console.print(f"  [{'x' if task.is_done() else ' '}] {task.id}: {task.description}")
             self.console.print()
 
     def add(self, command_line: str) -> None:
+        print('add',command_line )
         sub_command_rest = command_line.split(" ", 1)
         sub_command = sub_command_rest[0]
+        print(sub_command, "sub_command")
         if sub_command == "project":
             self.add_project(sub_command_rest[1])
         elif sub_command == "task":
