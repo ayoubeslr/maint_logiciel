@@ -23,32 +23,33 @@ class TaskList:
         command_rest = command_line.split(" ", 1)
         command = command_rest[0]
 
-
-        # operationFuncs = {
-        #     "show": self.show,
-        #     "add": self.add(command_rest[1]),
-        #     "check": self.check(command_rest[1]),
-        #     "uncheck" : self.uncheck(command_rest[1]),
-        #     "help" : self.help(),
-        #     "error" : self.error(command)
-        # }
+        condition = {
+            "show" : self.show(),
+        }
 
         print("command",command)
 
-        if command == "show":
-            self.show()
-        elif command == "add":
-            self.add(command_rest[1])
-        elif command == "check":
-            self.check(command_rest[1])
-        elif command == "uncheck":
-            self.uncheck(command_rest[1])
-        elif command == "help":
-            self.help()
-        else:
-            self.error(command)
+        for key, val in condition.items():
+            print("val",val,  command)
+            if key == command:
+                val
+           
+        print('aaa', condition[command])
+        # if command == "show":
+        #     self.show()
+        # elif command == "add":
+        #     self.add(command_rest[1])
+        # elif command == "check":
+        #     self.check(command_rest[1])
+        # elif command == "uncheck":
+        #     self.uncheck(command_rest[1])
+        # elif command == "help":
+        #     self.help()
+        # else:
+        #     self.error(command)
 
     def show(self) -> None:
+        print('NISSSSSSSSSSSSSSS')
         for project, tasks in self.tasks.items():
             print(project)
             self.console.print(project)
