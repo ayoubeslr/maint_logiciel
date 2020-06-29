@@ -2,7 +2,7 @@ from typing import Dict, List
 
 from task_list.console import Console
 from task_list.task import Task
-
+from task_list.command import Command
 
 class TaskList:
     QUIT = "quit"
@@ -19,37 +19,25 @@ class TaskList:
                 break
             self.execute(command)
 
-    def execute(self, command_line: str) -> None:
-        command_rest = command_line.split(" ", 1)
-        command = command_rest[0]
+    def execute(self, command_line: str ) -> None:
+        print(command_line)
+        # command_rest = command_line.split(" ", 1)
+        # command = command_rest[0]
+        c = Command("show")
+        print(c.command_list())
 
-        print('command_rest', command_rest)
-
-        # condition = {
-        #     "show" : self.show(),
-        #     "add" : self.add(command)
-        # }
-
-        # print("command",command)
-
-        # for key, val in condition.items():
-        #     print("val",val,  command)
-        #     if key == command:
-        #         val
-           
-        # print('aaa', condition[command])
-        if command == "show":
-            self.show()
-        elif command == "add":
-            self.add(command_rest[1])
-        elif command == "check":
-            self.check(command_rest[1])
-        elif command == "uncheck":
-            self.uncheck(command_rest[1])
-        elif command == "help":
-            self.help()
-        else:
-            self.error(command)
+        # if command == "show":
+        #     self.show()
+        # elif command == "add":
+        #     self.add(command_rest[1])
+        # elif command == "check":
+        #     self.check(command_rest[1])
+        # elif command == "uncheck":
+        #     self.uncheck(command_rest[1])
+        # elif command == "help":
+        #     self.help()
+        # else:
+        #     self.error(command)
 
     def show(self) -> None:
         for project, tasks in self.tasks.items():
@@ -65,6 +53,7 @@ class TaskList:
         sub_command = sub_command_rest[0]
         print(sub_command, "sub_command")
         if sub_command == "project":
+
             self.add_project(sub_command_rest[1])
         elif sub_command == "task":
             project_task = sub_command_rest[1].split(" ", 1)
