@@ -34,3 +34,8 @@ class Add:
     
     def add_project(self, name: str) -> None:
         TaskList(Console).tasks[name] = []
+
+    def next_id(self) -> int:
+        self.last_id += 1
+        return self.last_id
+
