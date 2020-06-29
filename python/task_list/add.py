@@ -12,7 +12,7 @@ class Add:
 
         if sub_command == "project":
             print('projet')
-            # self.add_project(sub_command_rest[1])
+            self.add_project(sub_command_rest[1])
 
         elif sub_command == "task":
             print('tasl')
@@ -23,12 +23,14 @@ class Add:
             self.error(command)
     
     def add_task(self, project: str, description: str) -> None:
-        # project_tasks = self.tasks.get(project)
-        print("add_task")
         project_tasks = TaskList(Console).tasks.get(project)
-        print("project_tasks", project_tasks)
         if project_tasks is None:
-            self.console.print(f"Could not find a project with the name {project}.")
-            self.console.print()
+            # self.console.print(f"Could not find a project with the name {project}.")
+            # self.console.print()
+            print(f"Could not find a project with the name {project}.")
+            print()
             return
         project_tasks.append(Task(self.next_id(), description, False))
+    
+    def add_project(self, name: str) -> None:
+        TaskList(Console).tasks[name] = []
