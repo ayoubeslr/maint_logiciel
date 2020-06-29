@@ -8,7 +8,7 @@ class Check:
     
     def set_done(self, id_string: str, done: bool) -> None:
         id_ = int(id_string)
-        for project, tasks in TaskList(Console).tasks.items()):
+        for project, tasks in TaskList(Console).tasks.items():
             for task in tasks:
                 if task.id == id_:
                     task.set_done(done)
@@ -20,6 +20,7 @@ class Check:
 
 
     def check(self, id_string: str) -> None:
+        print(id_string)
         self.set_done(id_string, True)
 
     def uncheck(self, id_string: str) -> None:

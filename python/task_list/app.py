@@ -24,9 +24,6 @@ class TaskList:
         command = Command(command_line)
         command.command_list()
 
-
-    
-
     def help(self) -> None:
         self.console.print("Commands:")
         self.console.print("  show")
@@ -43,6 +40,3 @@ class TaskList:
         self.console.print(f"I don't know what the command {command} is.")
         self.console.print()
 
-    def next_id(self) -> int:
-        self.last_id += 1
-        return self.last_id
