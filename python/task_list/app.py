@@ -35,12 +35,13 @@ class TaskList:
     def add(self, command_line: str) -> None:
         sub_command_rest = command_line.split(" ", 1)
         sub_command = sub_command_rest[0]
-        print(sub_command, "sub_command")
         if sub_command == "project":
             self.add_project(sub_command_rest[1])
         elif sub_command == "task":
             project_task = sub_command_rest[1].split(" ", 1)
-            self.add_task(project_task[0], project_task[1])
+            self.add_t:ask(project_task[0], project_task[1])
+        else:
+            self.error(command)
 
     def add_project(self, name: str) -> None:
         self.tasks[name] = []
@@ -71,16 +72,8 @@ class TaskList:
 
     def help(self) -> None:
         msg = ["Commands:", "  show", "  add project <project name>", "  add task <project name> <task description>", "  check <task ID>", "  uncheck <task ID>", ""]
-        # self.console.print("Commands:")
-        # self.console.print("  show")
-        # self.console.print("  add project <project name>")
-        # self.console.print("  add task <project name> <task description>")
-        # self.console.print("  check <task ID>")
-        # self.console.print("  uncheck <task ID>")
-        # self.console.print()
         for elt in msg :
-            print("ed", elt)
-            # self.console.print(elt)
+            self.console.print(elt)
 
     def error(self, command: str) -> None:
         self.console.print(f"I don't know what the command {command} is.")
