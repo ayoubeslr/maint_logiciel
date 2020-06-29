@@ -25,16 +25,13 @@ class TaskList:
         command.command_list()
 
     def help(self) -> None:
-        self.console.print("Commands:")
-        self.console.print("  show")
-        self.console.print("  add project <project name>")
-        self.console.print("  add task <project name> <task description>")
-        self.console.print("  check <task ID>")
-        self.console.print("  uncheck <task ID>")
-        self.console.print()
-        # msg = ["Commands:", "  show", "  add project <project name>", "  add task <project name> <task description>", "  check <task ID>", "  uncheck <task ID>", ""]
-        # for elt in msg :
-        #     self.console.print(elt)
+        print("Commands:")
+        print("  show")
+        print("  add project <project name>")
+        print("  add task <project name> <task description>")
+        print("  check <task ID>")
+        print("  uncheck <task ID>")
+        print()
 
     def error(self, command: str) -> None:
         self.console.print(f"I don't know what the command {command} is.")

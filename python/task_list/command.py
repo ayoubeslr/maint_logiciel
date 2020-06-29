@@ -18,9 +18,9 @@ class Command:
             Add(Console).add(command_rest[1])
         elif command == "check":
             Check(Console).check(command_rest[1])
-        # elif command == "uncheck":
-        #     TaskList(Console).uncheck(command_rest[1])
-        # elif command == "help":
-        #     TaskList(Console).help()
-        # else:
-        #     TaskList().error(command)
+        elif command == "uncheck":
+            Check(Console).uncheck(command_rest[1])
+        elif command == "help":
+            TaskList(Console).help()
+        else:
+            TaskList().error(command)

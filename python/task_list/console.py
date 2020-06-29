@@ -14,5 +14,4 @@ class Console:
     def input(self, prompt: Optional[str]="") -> str:
         self.print(prompt, end="")
         return self.input_reader.readline().strip()
-
     
