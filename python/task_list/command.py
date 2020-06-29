@@ -23,4 +23,4 @@ class Command:
         elif command == "help":
             TaskList(Console).help()
         else:
-            TaskList().error(command)
+            TaskList(Console).error(command)

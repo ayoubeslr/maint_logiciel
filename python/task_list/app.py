@@ -34,6 +34,6 @@ class TaskList:
         print()
 
     def error(self, command: str) -> None:
-        self.console.print(f"I don't know what the command {command} is.")
-        self.console.print()
+        print(f"I don't know what the command {command} is.")
+        print()
 
