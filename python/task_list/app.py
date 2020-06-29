@@ -2,7 +2,7 @@ from typing import Dict, List
 
 from task_list.console import Console
 from task_list.task import Task
-
+from task_list.project import Poject
 
 
 class TaskList:
@@ -39,20 +39,13 @@ class TaskList:
             self.add_project(sub_command_rest[1])
         elif sub_command == "task":
             project_task = sub_command_rest[1].split(" ", 1)
-            self.add_t:ask(project_task[0], project_task[1])
+            Project().add_task(project_task[0], project_task[1])
         else:
             self.error(command)
 
     def add_project(self, name: str) -> None:
         self.tasks[name] = []
 
-    def add_task(self, project: str, description: str) -> None:
-        project_tasks = self.tasks.get(project)
-        if project_tasks is None:
-            self.console.print(f"Could not find a project with the name {project}.")
-            self.console.print()
-            return
-        project_tasks.append(Task(self.next_id(), description, False))
 
     def check(self, id_string: str) -> None:
         self.set_done(id_string, True)
