@@ -1,5 +1,6 @@
 # import task_list.app
 from task_list.show import Show
+from task_list.add import Add
 class Command:
     def __init__(self, command_line):
         self.command_line = command_line
@@ -12,8 +13,11 @@ class Command:
         print("command", command)
         if command == "show":
             Show(Console).show()
-        # elif command == "add":
-        #     TaskList(Console).add(command_rest[1])
+        elif command == "add":
+            print('addddddddddddddddddddddddddddddddddddd')
+
+            Add(Console).add(command_rest[1])
+
         # elif command == "check":
         #     TaskList(Console).check(command_rest[1])
         # elif command == "uncheck":

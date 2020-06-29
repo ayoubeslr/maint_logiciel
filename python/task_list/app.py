@@ -2,7 +2,6 @@ from typing import Dict, List
 
 from task_list.console import Console
 from task_list.task import Task
-from task_list.project import Poject
 
 
 class TaskList:
@@ -24,13 +23,6 @@ class TaskList:
         from task_list.command import Command
         command = Command(command_line)
         command.command_list()
-
-    def show(self) -> None:
-        for project, tasks in self.tasks.items():
-            self.console.print(project)
-            for task in tasks:
-                self.console.print(f"  [{'x' if task.is_done() else ' '}] {task.id}: {task.description}")
-            self.console.print()
 
     def add(self, command_line: str) -> None:
         sub_command_rest = command_line.split(" ", 1)

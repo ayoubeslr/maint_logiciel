@@ -6,7 +6,8 @@ class Show:
         self.console = console
 
     def show(self) -> None:
-        print("yoiupiiiii")
+        print("yoiupiiiii", TaskList(Console).tasks.items())
+        
         for project, tasks in TaskList(Console).tasks.items():
             self.console.print(project)
             for task in tasks:
