@@ -4,6 +4,7 @@ from task_list.console import Console
 from task_list.task import Task
 
 
+
 class TaskList:
     QUIT = "quit"
 
@@ -21,25 +22,11 @@ class TaskList:
 
     def execute(self, command_line: str ) -> None:
         from task_list.command import Command
-        # command_rest = command_line.split(" ", 1)
-        # command = command_rest[0]
-        c = Command(command_line)
-        print(c.command_list())
-
-        # if command == "show":
-        #     self.show()
-        # elif command == "add":
-        #     self.add(command_rest[1])
-        # elif command == "check":
-        #     self.check(command_rest[1])
-        # elif command == "uncheck":
-        #     self.uncheck(command_rest[1])
-        # elif command == "help":
-        #     self.help()
-        # else:
-        #     self.error(command)
+        command = Command(command_line)
+        command.command_list()
 
     def show(self) -> None:
+        print("je plante")
         for project, tasks in self.tasks.items():
             print("project", project)
             self.console.print(project)
