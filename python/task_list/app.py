@@ -2,7 +2,7 @@ from typing import Dict, List
 
 from task_list.console import Console
 from task_list.task import Task
-from task_list.command import Command
+
 
 class TaskList:
     QUIT = "quit"
@@ -20,10 +20,10 @@ class TaskList:
             self.execute(command)
 
     def execute(self, command_line: str ) -> None:
-        print(command_line)
+        from task_list.command import Command
         # command_rest = command_line.split(" ", 1)
         # command = command_rest[0]
-        c = Command("show")
+        c = Command(command_line)
         print(c.command_list())
 
         # if command == "show":
@@ -102,8 +102,3 @@ class TaskList:
     def next_id(self) -> int:
         self.last_id += 1
         return self.last_id
-
-if __name__ == "__main__":
-    
-    a = TaskList()
-    print(a.execute())
