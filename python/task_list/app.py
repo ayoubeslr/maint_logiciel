@@ -8,7 +8,7 @@ from task_list.task import Task
 class TaskList:
     QUIT = "quit"
 
-    def __init__(self, console: Console) -> None:
+    def __init__(self, console : Console) -> None:
         self.console = console
         self.last_id: int = 0
         self.tasks: Dict[str, List[Task]] = dict()
@@ -26,21 +26,17 @@ class TaskList:
         command.command_list()
 
     def show(self) -> None:
-        print("je plante")
         for project, tasks in self.tasks.items():
-            print("project", project)
             self.console.print(project)
             for task in tasks:
                 self.console.print(f"  [{'x' if task.is_done() else ' '}] {task.id}: {task.description}")
             self.console.print()
 
     def add(self, command_line: str) -> None:
-        print('add',command_line )
         sub_command_rest = command_line.split(" ", 1)
         sub_command = sub_command_rest[0]
         print(sub_command, "sub_command")
         if sub_command == "project":
-
             self.add_project(sub_command_rest[1])
         elif sub_command == "task":
             project_task = sub_command_rest[1].split(" ", 1)
@@ -74,13 +70,17 @@ class TaskList:
         self.console.print()
 
     def help(self) -> None:
-        self.console.print("Commands:")
-        self.console.print("  show")
-        self.console.print("  add project <project name>")
-        self.console.print("  add task <project name> <task description>")
-        self.console.print("  check <task ID>")
-        self.console.print("  uncheck <task ID>")
-        self.console.print()
+        msg = ["Commands:", "  show", "  add project <project name>", "  add task <project name> <task description>", "  check <task ID>", "  uncheck <task ID>", ""]
+        # self.console.print("Commands:")
+        # self.console.print("  show")
+        # self.console.print("  add project <project name>")
+        # self.console.print("  add task <project name> <task description>")
+        # self.console.print("  check <task ID>")
+        # self.console.print("  uncheck <task ID>")
+        # self.console.print()
+        for elt in msg :
+            print("ed", elt)
+            # self.console.print(elt)
 
     def error(self, command: str) -> None:
         self.console.print(f"I don't know what the command {command} is.")

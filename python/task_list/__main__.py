@@ -6,8 +6,8 @@ from task_list.app import TaskList
 
 def main():
     task_list = TaskList(Console(sys.stdin, sys.stdout))
-    # task_list.run()
-    print(task_list.execute("show"))
+    task_list.run()
+    # print(task_list.execute("add project bonjour"))
 
 
 
